@@ -1,0 +1,13 @@
+.color-picker__wrapper .color-picker__item {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.color-picker__item--outer{
+  margin: 5px;
+  display: inline-block;
+}
+.color-picker__item--active{
+  border: 1px solid black;
+}

@@ -1,0 +1,6 @@
+<div class="color-picker__wrapper">
+  <div class="color-picker__item--outer" *ngFor="let color of colors">
+    <div [ngStyle]="{'background-color': color.value}" (click)="selectColor(color.id)"
+         [ngClass]="{'color-picker__item--active': selectedColor === color.id}" class="color-picker__item"> </div>
+  </div>
+</div>
