@@ -16,7 +16,7 @@ export class ColorPickerComponent implements OnInit {
   }
 
   selectColor(colorId: number): void {
-    this.selectedColor = colorId;
+    this.selectedColor = this.selectedColor === colorId ? 0 : colorId;
     this.selectedColorChanged.emit(colorId);
   }
 }

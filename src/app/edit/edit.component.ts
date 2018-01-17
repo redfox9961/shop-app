@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Product} from '../product';
 import {ConstantHelperService} from '../constant-helper.service';
 import {ProductService} from '../product.service';
-import {of} from 'rxjs/observable/of';
-import {Observable} from 'rxjs/Observable';
+import { Location } from '@angular/common';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -12,19 +12,30 @@ import {Observable} from 'rxjs/Observable';
 })
 export class EditComponent implements OnInit {
   product: Product;
-  constructor(public constants: ConstantHelperService, public productService: ProductService) { }
+  constructor(public constants: ConstantHelperService, public productService: ProductService, public location: Location,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.product = new Product();
+    this.activatedRoute.params.subscribe((params: Params) => {
+      const guid = params['id'];
+      if( typeof guid !== 'undefined'){
+        this.product =  this.productService.getProductByGuid(guid);
+      }
+      console.log(guid);
+    });
   }
 
   // TODO: спросить за гавнохак у Леши
+  // Upd: спросила, так надо:(
   selectedColorChanged(newValue: number) {
     this.product.colorId = newValue;
   }
   saveProduct(): void {
-    this.productService.addProduct(this.product);
-    let prod: any = of(this.productService.getProducts());
-    console.log(prod);
+    const products = (typeof this.product.guid === 'undefined') ?
+      this.productService.addProduct(this.product) : this.productService.editProduct(this.product);
+  }
+  goBack(): void {
+    this.location.back();
   }
 }

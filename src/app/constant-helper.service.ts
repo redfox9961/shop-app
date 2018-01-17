@@ -31,31 +31,47 @@ export class ConstantHelperService {
   public colors: Value = [
     {
       id: 1,
-      value: '#9400D3'
+      value: '#E91E63'
     },
     {
       id: 2,
-      value: '#4B0082'
+      value: '#9C27B0'
     },
     {
       id: 3,
-      value: '#0000FF'
+      value: '#3F51B5'
     },
     {
       id: 4,
-      value: '#00FF00'
+      value: '#2196F3'
     },
     {
       id: 5,
-      value: '#FFFF00'
+      value: '#4CAF50'
     },
     {
       id: 6,
-      value: '#FF7F00'
+      value: '#FFEB3B'
     },
     {
       id: 7,
-      value: '#FF0000'
+      value: '#FF5722'
+    },
+    {
+      id: 8,
+      value: '#795548'
+    },
+    {
+      id: 9,
+      value: '#607D8B'
+    },
+    {
+      id: 10,
+      value: '#000000'
+    },
+    {
+      id: 11,
+      value: '#FFFFFF'
     }];
   public categories: Value = [
   {

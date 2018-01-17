@@ -1,22 +1,47 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
 import {Product} from './product';
-import {tap} from 'rxjs/operators';
+import {LocalProductStorageService} from './local-product-storage.service';
 
 @Injectable()
 export class ProductService {
-    private productUrl = 'api/products'
+    productEquals = (a: Product, b: Product): boolean => {
+      return a.guid === b.guid;
+    };
 
-    constructor(public  http: HttpClient) { }
+    searchProducts = (item: Product, key: string): boolean => {
+      return item.guid === key;
+    };
 
-    getProducts(): Observable<Product[]> {
-      return this.http.get<Product[]>(this.productUrl);
+    constructor(public storage: LocalProductStorageService<Product>) { }
+
+    getProducts(): Product[] {
+       return this.storage.getItems();
     }
 
-    addProduct(product: Product): void {
-      this.http.post(this.productUrl, product,
-        {  headers: new HttpHeaders(
-          { 'Content-Type': 'application/json' })});
+    getProductByGuid(guid: string): Product {
+      return this.storage.getItemByKey(guid, this.searchProducts);
+    }
+
+    addProduct(product: Product): Product[] {
+      product.guid = this.randomGuid();
+      this.storage.addItem(product);
+      return this.getProducts();
+    }
+
+    editProduct(product: Product): Product[] {
+      this.storage.updateItem(product, this.productEquals);
+      return this.getProducts();
+    }
+
+    deleteProduct(guid: string): void {
+       this.storage.deleteItem(guid, this.searchProducts);
+    }
+
+    private randomGuid(): string {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
     }
 }

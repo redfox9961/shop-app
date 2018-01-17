@@ -1,0 +1,18 @@
+<div class="product-list__wrapper">
+    <mat-card *ngFor="let item of products" [ngClass]="{'admin-mode' : editMode}">
+      <mat-card-title>
+        <a routerLink="/product/{{item.guid}}">{{item.name}}</a>
+      </mat-card-title>
+      <mat-card-content>
+        <div class="product-list__item-image">
+           <img [src]="item.imageUrl"/>
+        </div>
+        <div class="product-list__item-description">
+         {{item.description}}
+        </div>
+      </mat-card-content>
+      <mat-card-actions *ngIf="editMode">
+        <app-admin-actions [guid]="item.guid"></app-admin-actions>
+      </mat-card-actions>
+    </mat-card>
+</div>
