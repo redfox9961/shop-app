@@ -9,6 +9,7 @@ import {Value} from '../value';
 export class ColorPickerComponent implements OnInit {
   @Input() colors: Value[];
   @Input() selectedColor;
+  @Input() disabled: boolean;
   @Output() selectedColorChanged = new EventEmitter<number>();
   constructor() { }
 
@@ -16,7 +17,9 @@ export class ColorPickerComponent implements OnInit {
   }
 
   selectColor(colorId: number): void {
+    if (!this.disabled) {
     this.selectedColor = this.selectedColor === colorId ? 0 : colorId;
     this.selectedColorChanged.emit(colorId);
+    }
   }
 }

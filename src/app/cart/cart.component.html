@@ -1,0 +1,4 @@
+<div *ngFor="let product of products">
+  <a routerLink="/product/{{product.guid}}"> {{product.name}}</a>
+  <button mate-button (click)="deleteProductFromCart(product.guid)">X</button>
+</div>

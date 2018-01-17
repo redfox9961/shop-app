@@ -19,10 +19,9 @@ export class EditComponent implements OnInit {
     this.product = new Product();
     this.activatedRoute.params.subscribe((params: Params) => {
       const guid = params['id'];
-      if( typeof guid !== 'undefined'){
+      if (typeof guid !== 'undefined') {
         this.product =  this.productService.getProductByGuid(guid);
       }
-      console.log(guid);
     });
   }
 

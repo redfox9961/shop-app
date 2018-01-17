@@ -15,7 +15,14 @@ export class ProductService {
     constructor(public storage: LocalProductStorageService<Product>) { }
 
     getProducts(): Product[] {
-       return this.storage.getItems();
+       return this.storage.getItems;
+    }
+
+    getProductsFromCart(): Product[] {
+      this.storage.setSaveToCartMode();
+      const items = this.storage.getItems();
+      this.storage.setSaveToShopMode();
+      return items;
     }
 
     getProductByGuid(guid: string): Product {
@@ -35,6 +42,18 @@ export class ProductService {
 
     deleteProduct(guid: string): void {
        this.storage.deleteItem(guid, this.searchProducts);
+    }
+
+    addToCart(product: Product): void {
+      this.storage.setSaveToCartMode();
+      this.addProduct(product);
+      this.storage.setSaveToShopMode();
+    }
+
+    removeFromCart(guid: string): void {
+      this.storage.setSaveToCartMode();
+      this.deleteProduct(guid);
+      this.storage.setSaveToShopMode();
     }
 
     private randomGuid(): string {

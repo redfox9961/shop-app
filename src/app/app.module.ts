@@ -23,6 +23,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {LocalProductStorageService} from './local-product-storage.service';
 import { ListViewComponent } from './list-view/list-view.component';
 import { AdminActionsComponent } from './admin-actions/admin-actions.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const appRoutes: Routes = [{
@@ -31,7 +32,8 @@ const appRoutes: Routes = [{
   {path: 'admin', component: ManagementPageComponent},
   {path: 'add-product', component: EditComponent},
   {path: 'edit-product/:id', component: EditComponent},
-  {path: 'product/:id', component: DetailComponent}
+  {path: 'product/:id', component: DetailComponent},
+  {path: 'cart', component: CartComponent}
 ];
 
 @NgModule({
@@ -44,6 +46,7 @@ const appRoutes: Routes = [{
     DetailComponent,
     ListViewComponent,
     AdminActionsComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

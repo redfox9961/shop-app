@@ -1,9 +1,22 @@
 import { Injectable } from '@angular/core';
 
+const shopAppKey = 'shop-app';
+const userCartKey = 'user-cart';
+
 @Injectable()
 export class LocalProductStorageService<T> {
-  private storageKey = 'shop-app';
-  constructor() { }
+  private storageKey: string;
+  constructor() {
+    this.setSaveToShopMode();
+  }
+
+  setSaveToShopMode(): void {
+     this.storageKey = shopAppKey;
+  }
+
+  setSaveToCartMode(): void {
+    this.storageKey = userCartKey;
+  }
 
   getItems(): T[] {
     const items = JSON.parse(localStorage.getItem(this.storageKey));
@@ -33,6 +46,5 @@ export class LocalProductStorageService<T> {
     const index = items.findIndex(i => search(i, key));
     items.splice(index, 1);
     localStorage.setItem(this.storageKey, JSON.stringify(items));
-
   }
 }
