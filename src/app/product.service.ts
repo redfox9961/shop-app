@@ -15,7 +15,7 @@ export class ProductService {
     constructor(public storage: LocalProductStorageService<Product>) { }
 
     getProducts(): Product[] {
-       return this.storage.getItems;
+       return this.storage.getItems();
     }
 
     getProductsFromCart(): Product[] {
