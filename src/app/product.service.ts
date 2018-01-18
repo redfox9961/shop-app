@@ -10,7 +10,7 @@ export class ProductService {
 
     searchProducts = (item: Product, key: string): boolean => {
       return item.guid === key;
-    };
+    }
 
     constructor(public storage: LocalProductStorageService<Product>) { }
 

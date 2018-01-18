@@ -1,5 +1,6 @@
 .detail-card__wrapper .mat-card{
   width: 50%;
-  margin: 50px auto;
+  margin: 0 auto;
   position: relative;
+  top: 50px;
 }

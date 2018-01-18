@@ -4,6 +4,7 @@
       Product detail
     </mat-card-title>
     <mat-card-content>
+        <img [src]="product.imageUrl"/>
       <mat-form-field>
         <input type="text" matInput placeholder="Name" [(ngModel)]="product.name" [disabled]="true">
       </mat-form-field>
@@ -24,9 +25,6 @@
       <app-color-picker [colors]="constants.colors" [selectedColor]="product.colorId" [disabled]="true"
                         (selectedColorChanged)="selectedColorChanged($event)"></app-color-picker>
       <mat-form-field>
-        <input type="text" matInput placeholder="Image Url" [(ngModel)]="product.imageUrl" [disabled]="true">
-      </mat-form-field>
-      <mat-form-field>
         <input type="number" matInput placeholder="Price" [(ngModel)]="product.price" [disabled]="true">
       </mat-form-field>
       <mat-form-field>
@@ -34,8 +32,8 @@
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button (click)="goBack()" color="primary">Back</button>
-      <button mat-button (click)="addToCart(product)" color="primary">Add to cart</button>
+      <button mat-raised-button (click)="goBack()" color="accent">Back</button>
+      <button mat-raised-button (click)="addToCart(product)" color="primary">Add to cart</button>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -10,12 +10,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material';
 import {MatCardModule} from '@angular/material';
+import {MatTabsModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material';
+import {MatTableModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import {ColorPickerComponent} from './color-picker/color-picker.component';
 import { ManagementPageComponent } from './management-page/management-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { EditComponent } from './edit/edit.component';
+import {EditComponent, SuccessMessageComponent} from './edit/edit.component';
 import { DetailComponent } from './detail/detail.component';
 import {ConstantHelperService} from './constant-helper.service';
 import {ProductService} from './product.service';
@@ -42,11 +45,12 @@ const appRoutes: Routes = [{
     ColorPickerComponent,
     ManagementPageComponent,
     MainPageComponent,
+    SuccessMessageComponent,
     EditComponent,
     DetailComponent,
     ListViewComponent,
     AdminActionsComponent,
-    CartComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,10 @@ const appRoutes: Routes = [{
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule,
+    MatDialogModule,
+    MatTableModule
   ],
   providers: [
     ConstantHelperService,
@@ -69,6 +76,7 @@ const appRoutes: Routes = [{
     LocalProductStorageService,
     ProductService
   ],
+  entryComponents: [SuccessMessageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
