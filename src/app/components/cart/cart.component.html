@@ -1,0 +1,29 @@
+<div class="cart-card__wrapper">
+<table>
+  <tr class="cart-card" *ngFor="let product of products">
+    <td class="cart-card__checkbox inline-block">
+      <mat-checkbox [value]="product.guid" color="primary" (change)="checkProduct(product, $event)"></mat-checkbox>
+    </td>
+    <td class="cart-card__image inline-block">
+      <img src="{{product.imageUrl}}"/>
+    </td>
+    <td class="cart-card__title inline-block">
+      {{product.name}}
+    </td>
+    <td class="cart-card__size inline-block">
+      {{constants.getSizeNameByKey(product.selectedSize) | uppercase}}
+    </td>
+    <td class="cart-card__price inline-block">
+        <mat-icon>attach_money</mat-icon>
+        <span>{{product.price}}</span>
+    </td>
+  </tr>
+</table>
+</div>
+<div class="cart-total">
+  Всего: <strong>{{totalPrice}}</strong>
+</div>
+<div class="fixed-actions">
+  <button mat-fab (click)="removeItemsFromCart()" [disabled]="selectedProducts.length == 0">
+    <mat-icon>delete</mat-icon></button>
+</div>

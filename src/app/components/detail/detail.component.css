@@ -1,0 +1,72 @@
+.detail-card__wrapper .mat-card{
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  top: 50px;
+}
+
+.return-btn{
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+}
+
+.detail-card__image {
+display: inline-block;
+width: 60%;
+}
+.detail-card__content{
+  display: inline-block;
+  width: 40%;
+  top: 50px;
+  position: absolute;
+}
+
+.detail-card__content .card-content__title{
+  font-size: 18px;
+  padding: 10px 0;
+}
+.card-detail__price{
+  position: relative;
+  left: -6px;
+}
+
+.card-detail__price__value{
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  top: -4px;
+  left: -8px;
+}
+
+.size-item {
+  text-align: center;
+  display: inline-block;
+  padding: 5px 5px;
+  border: 1px solid;
+  margin: 0 5px;
+  width: 20px;
+  font-size: 12px;
+}
+
+.size-item :hover{
+  cursor: pointer;
+}
+.size-item.active{
+  background: black;
+  color: white;
+  border-color: black;
+}
+.card-detail__category{
+  font-size: 15px;
+  margin: 3px 0px;
+}
+
+.card-detail__item-sizes{
+  margin: 10px -5px;
+}
+
+.card-detail__description{
+  margin-top: 20px;
+}

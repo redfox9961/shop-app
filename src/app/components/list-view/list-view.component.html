@@ -1,0 +1,30 @@
+<div class="product-list__wrapper">
+    <mat-card *ngFor="let item of products" [ngClass]="{'admin-mode' : editMode}">
+      <div *ngIf="editMode" class="admin-actions">
+      <a mat-fab color="primary" routerLink="/edit-product/{{guid}}"><mat-icon>edit</mat-icon></a>
+      <button mat-fab color="warn" (click)="deleteProduct(guid)"><mat-icon>delete</mat-icon></button>
+      </div>
+      <mat-card-content>
+        <div class="product-list__item" routerLink="/product/{{item.guid}}">
+          <div class="product-list__item-image">
+           <img [src]="item.imageUrl"/>
+        </div>
+        <div class="product-list__item-description">
+         {{item.name}}
+        </div>
+          <div class="product-list__item-price">
+            <mat-icon>attach_money</mat-icon>
+            <div class="product-list__item-price__value">{{item.price}}</div>
+          </div>
+      </div>
+        <div class="product-list__item-sizes">
+            <div *ngFor="let size of item.sizeId" class="size-item" [ngClass]="{ 'active' : item.selectedSize === size}">
+              <div (click)="selectSize(size, item)">{{constants.getSizeNameByKey(size) | uppercase}}</div>
+            </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="accent" (click)="addToCart(item)" [disabled]="!item.selectedSize"><mat-icon>add_shopping_cart</mat-icon></button>
+      </mat-card-actions>
+    </mat-card>
+</div>

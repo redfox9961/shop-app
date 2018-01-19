@@ -1,0 +1,76 @@
+.inline-block{
+  display: inline-block;
+}
+
+td.cart-card__image img {
+  height: 100px;
+}
+
+table{
+  width: 100%
+}
+
+td.cart-card__checkbox.inline-block {
+  width: 5%;
+  padding-left: 10px;
+}
+
+
+
+td.cart-card__image.inline-block {
+  width: 10%;
+}
+
+td.cart-card__title.inline-block {
+  width: 20%;
+}
+
+.cart-card__price__value {
+  display: table-cell;
+  width: 10%;
+}
+
+td.cart-card__price.inline-block {
+  width: 30%;
+}
+
+.cart-card__price span{
+  position: relative;
+  top: -7px;
+  left: -6px;
+  font-weight: bold;
+}
+
+table{
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+tr.cart-card {
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  background-color: white;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  border-spacing: 10px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.cart-card__size{
+  width: 5%;
+}
+
+.cart-card__wrapper{
+  height: 450px;
+  overflow: auto;
+}
+
+.cart-total{
+  position: relative;
+  top: 20px;
+  right: 160px;
+  text-align: right;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}

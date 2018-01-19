@@ -21,3 +21,15 @@
 .mat-dialog-actions .mat-button{
   margin: 0 auto;
 }
+
+.action-buttons{
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+}
+
+.fixed-actions{
+  position: fixed;
+  bottom: 30px;
+  right: 82px;
+}

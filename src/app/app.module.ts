@@ -3,7 +3,7 @@ import {NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import {ProductDataService} from './product-data.service';
+import {ProductDataService} from './services/product-data.service';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -13,20 +13,23 @@ import {MatCardModule} from '@angular/material';
 import {MatTabsModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material';
 import {MatTableModule} from '@angular/material';
+import {MatIconModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
-import {ColorPickerComponent} from './color-picker/color-picker.component';
-import { ManagementPageComponent } from './management-page/management-page.component';
-import { MainPageComponent } from './main-page/main-page.component';
-import {EditComponent, SuccessMessageComponent} from './edit/edit.component';
-import { DetailComponent } from './detail/detail.component';
-import {ConstantHelperService} from './constant-helper.service';
-import {ProductService} from './product.service';
+import {ColorPickerComponent} from './components/color-picker/color-picker.component';
+import { ManagementPageComponent } from './components/management-page/management-page.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import {EditComponent} from './components/edit/edit.component';
+import { DetailComponent } from './components/detail/detail.component';
+import {ConstantHelperService} from './services/constant-helper.service';
+import {ProductService} from './services/product.service';
 import {HttpClientModule} from '@angular/common/http';
-import {LocalProductStorageService} from './local-product-storage.service';
-import { ListViewComponent } from './list-view/list-view.component';
-import { AdminActionsComponent } from './admin-actions/admin-actions.component';
-import { CartComponent } from './cart/cart.component';
+import {LocalProductStorageService} from './services/local-product-storage.service';
+import { ListViewComponent } from './components/list-view/list-view.component';
+import { AdminActionsComponent } from './components/admin-actions/admin-actions.component';
+import { CartComponent } from './components/cart/cart.component';
+import {SuccessMessageComponent} from './components/success-message/success-message.component';
 
 
 const appRoutes: Routes = [{
@@ -68,7 +71,9 @@ const appRoutes: Routes = [{
     MatCardModule,
     MatTabsModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    MatCheckboxModule
   ],
   providers: [
     ConstantHelperService,

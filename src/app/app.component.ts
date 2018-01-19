@@ -7,9 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
    navLinks = [
-    {path: '/index', label: 'Shop'},
-    {path: '/admin', label: 'Admin'},
-    {path: '/cart', label: 'Cart'}
+    {path: '/index', label: 'Магазин', iconName: 'home'},
+    {path: '/cart', label: 'Корзина', iconName: 'shopping_cart'}
   ];
   constructor() {}
 }

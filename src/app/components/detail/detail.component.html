@@ -1,0 +1,37 @@
+<div class="detail-card__wrapper">
+  <mat-card>
+    <mat-card-content>
+      <div class="detail-card__image">
+        <img [src]="product.imageUrl"/>
+      </div>
+      <div class="detail-card__content">
+        <div class="card-content__title">
+          {{product.name}}
+        </div>
+        <div class="card-detail__price">
+          <mat-icon>attach_money</mat-icon>
+          <div class="card-detail__price__value">{{product.price}}</div>
+        </div>
+        <div class="card-detail__category">
+          {{constants.getCategoryName(product.categoryId, product)}}
+        </div>
+        <div class="card-detail__sizes">
+          <div class="card-detail__item-sizes">
+            <div *ngFor="let size of product.sizeId" class="size-item" [ngClass]="{ 'active' : product.selectedSize === size}">
+              <div (click)="selectSize(size, product)">{{constants.getSizeNameByKey(size) | uppercase}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-detail__actions">
+          <button [disabled]="!product.selectedSize" mat-raised-button (click)="addToCart(product)" color="primary"><mat-icon>shopping_cart</mat-icon>Добавить в корзину</button>
+        </div>
+        <div class="card-detail__description">
+          {{product.description}}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="fixed-actions">
+<button mat-fab (click)="goBack()" color="accent"><mat-icon>keyboard_backspace</mat-icon></button>
+</div>

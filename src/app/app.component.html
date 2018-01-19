@@ -5,10 +5,16 @@
      [routerLink]="link.path"
      routerLinkActive #rla="routerLinkActive"
      [active]="rla.isActive">
+    <mat-icon *ngIf="link.iconName">{{link.iconName}}</mat-icon>
     {{link.label}}
   </a>
 </nav>
 <div class="main">
 <router-outlet></router-outlet>
+</div>
+<div class="action-buttons">
+  <button mat-fab color="primary" routerLink="/admin">
+    <mat-icon >account_circle</mat-icon>
+  </button>
 </div>
 
