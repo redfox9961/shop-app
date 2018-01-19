@@ -30,11 +30,34 @@ export class ListViewComponent implements OnInit {
     product.selectedSize = null;
   }
 
+  removeProduct(guid: string): void {
+    this.productService.deleteProduct(guid);
+  }
+
+  deleteProduct(guid: string): void {
+    this.openDeeteDialog('Вы дейтсвительно хотите удалить товар?', guid);
+  }
+
   openDialog(title) {
     const dialogRef = this.dialog.open(SuccessMessageComponent, {
       height: '180px',
       width: '350px',
       data: {message: title}
+    });
+  }
+  openDeeteDialog(title: string, guid: string) {
+    const dialogRef = this.dialog.open(SuccessMessageComponent, {
+      height: '180px',
+      width: '350px',
+      data: {
+        message: title,
+        isConfirm: true,
+        action: () => {
+          this.removeProduct(guid);
+          this.products = this.productService.getProducts();
+          dialogRef.close();
+        }
+      }
     });
   }
 }

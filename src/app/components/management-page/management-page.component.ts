@@ -28,6 +28,7 @@ export class ManagementPageComponent implements OnInit {
         isConfirm: true,
         action: () => {
           this.removeProduct(guid);
+          dialogRef.close();
           this.products = this.productService.getProducts();
         }
       }

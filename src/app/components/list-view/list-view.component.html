@@ -1,8 +1,8 @@
 <div class="product-list__wrapper">
     <mat-card *ngFor="let item of products" [ngClass]="{'admin-mode' : editMode}">
       <div *ngIf="editMode" class="admin-actions">
-      <a mat-fab color="primary" routerLink="/edit-product/{{guid}}"><mat-icon>edit</mat-icon></a>
-      <button mat-fab color="warn" (click)="deleteProduct(guid)"><mat-icon>delete</mat-icon></button>
+      <a mat-fab color="primary" routerLink="/edit-product/{{item.guid}}"><mat-icon>edit</mat-icon></a>
+      <button mat-fab color="warn" (click)="deleteProduct(item.guid)"><mat-icon>delete</mat-icon></button>
       </div>
       <mat-card-content>
         <div class="product-list__item" routerLink="/product/{{item.guid}}">
